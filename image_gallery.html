@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Image Gallery - Google Image Style</title>
+    
+</head>
+<style>
+    /* General body styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f3edf9; /* Light pastel purple background */
+    color: #5e5189; /* Darker pastel purple text */
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 28px;
+    color: #6b5b95;
+    margin-bottom: 20px;
+}
+
+/* Gallery grid styling */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 10px;
+    padding: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Image container styling */
+.image-container {
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.image-container img {
+    width: 100%;
+    height: auto; /* Allow images to maintain their aspect ratio */
+    display: block; /* Removes extra space below images */
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Lightbox styling */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* Caption */
+#caption {
+    color: #ccc;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+</style>
+<body>
+    <h1>Dog Image Gallery</h1>
+
+    <div class="gallery">
+        <!-- Images sourced from placeholder service -->
+        <div class="image-container">
+            <img src="https://placedog.net/600/400" alt="Dog 1" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/500/500" alt="Dog 2" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/600/700" alt="Dog 3" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/800/600" alt="Dog 4" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/500/800" alt="Dog 5" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/600/300" alt="Dog 6" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/400/400" alt="Dog 7" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/700/500" alt="Dog 8" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/600/500" alt="Dog 9" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/800/700" alt="Dog 10" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/700/800" alt="Dog 11" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/400/500" alt="Dog 12" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/500/600" alt="Dog 13" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/600/600" alt="Dog 14" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/700/400" alt="Dog 15" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/600/600" alt="Dog 16" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/800/800" alt="Dog 17" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/500/700" alt="Dog 18" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/700/500" alt="Dog 19" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/800/300" alt="Dog 20" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/400/800" alt="Dog 21" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/700/700" alt="Dog 22" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/600/200" alt="Dog 23" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/500/600" alt="Dog 24" onclick="openLightbox(this)">
+        </div>
+        <div class="image-container">
+            <img src="https://placedog.net/600/300" alt="Dog 25" onclick="openLightbox(this)">
+        </div>
+    </div>
+
+    <!-- Lightbox/Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-image">
+        <div id="caption"></div>
+    </div>
+
+   <script>
+    function openLightbox(image) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const caption = document.getElementById('caption');
+
+    lightbox.style.display = 'flex';
+    lightboxImage.src = image.src;
+    caption.innerHTML = image.alt;
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.style.display = 'none';
+}
+
+   </script>
+</body>
+</html>
